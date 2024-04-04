@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>New Job Post</title>
+		<link rel="stylesheet" type="text/css" href="styles\styles.css">
+		<script src="js\imeshscript.js"></script>
+    </head>
+	<body background="images/imesh.jpg">
+	
+		
+		
+		<div class="header1">
+		
+		<img src="images/logo.png" class="logo1">
+		<h1>Express Jobs International</h1>
+		
+		</div>
+		<ul class="menu">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="#">Candidates</a></li>
+			<li><a href="Employee.html">Employees</a></li>
+			<li><a href="BLOG.html">Blog</a></li>
+			<li><a href="#">About us</a></li>
+			<li><a href="contactus.html">Contact us</a></li>
+			<li><a href="#">Login</a></li>
+			
+		</ul>
+
+        <form action="newJobPost.php" method="POST" class="Formclass"  onsubmit="return validateForm();">
+			<h1>New Job Post</h1>
+
+			Job Title : <br>
+			<input type = "text" id="jobtitle" name="jobtitle" placeholder="Ex-Software Engineer" ><br><br> 
+			
+			Company Name : <br>
+			<input type = "text" id="companyname" name="companyname" placeholder="abc Company" ><br><br> 
+			
+			Job Description: <br>
+			<textarea id="jobdescription" name="jobdescription"  rows="8" cols="50" required></textarea><br><br>
+			
+			Job Requirements: <br>
+			<textarea id="jobrequirements" name="jobrequirements" rows="5" cols="50" required></textarea><br><br>
+			
+			Salary: <br>
+			<input type="text" id="salary" name="salary" placeholder="Rs.50000" ><br><br>
+			
+			Location: <br>
+			<textarea id="location" name="location" rows="4" cols="50" ></textarea><br><br>
+			
+			
+			
+			<input type="checkbox" id="checkbox" onclick="enableButton()"> Accept Privacy policy & Terms.<br><br>
+			
+			<center>
+				<input type="submit" value="submit" id="submitbtn" disabled>
+			</center>	
+		</form>
+
+
+
+		<hr>
+		<footer class="footer">
+		<div class="footer-rectangle">
+        <!-- Content for the first rectangle -->
+        <h3><u>Express jobs</u></h3>
+		
+        <p><a href="about-us.html">About Us</a></p>
+        <p><a href="mission.html">Mission</a></p>
+        <p><a href="vision.html">Vision</a></p>
+		
+		</div>
+    
+		<div class="footer-rectangle">
+        <!-- Content for the second rectangle -->
+        <h3><u>Services</u></h3>
+		<ul>
+        <li><p>Posting jobs</p></li>
+		<li><p>Finding jobs</p></li>
+		</ul>
+		</div>
+    
+		<div class="footer-rectangle">
+        <!-- Content for the third rectangle -->
+        <h3><u>Contact us</u></h3>
+		<ul>
+        <li><p>+94770639410</p></li>
+		<li><p>+94770639510</p></li>
+		
+		<a href="#"><li>expressjobsonline@gmail.com</li></a></p>
+		</ul>
+		</div>
+		
+		
+		
+		</footer>
+			
+	</body>
+</html>

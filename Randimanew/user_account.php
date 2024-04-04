@@ -1,0 +1,325 @@
+<?php 
+
+    include 'config1.php';
+
+    $sql = "select * from user_data";
+
+    $result = mysqli_query( $conn, $sql );
+
+        if ($result){
+
+            $ID = 1;
+            while( $row = mysqli_fetch_assoc($result)){
+                $f_name = $row['first_name'];
+                $l_name = $row['last_name'];
+                $phone_no = $row['contact_number'];
+                $email = $row['email'];
+                $password =  $row['password'];
+
+                // echo' <tr>
+
+                // <th scope="row">'.$ID.'</th>
+                // <td>'.$f_name.'</td>
+                // <td>'.$email.'</td>
+                // <td>'.$password.'</td>
+               
+                // </tr> ';
+            } 
+       
+        }
+    
+
+
+?>
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Express Jobs User Account Page</title>
+        <link rel="stylesheet" type="text/css" href="style/User_acc_style.css">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body background="Images/bg3.jpg"> 
+        <div class="header1">
+            <img src="Images/logo1.png" class="logo1">
+            <h1>Express Jobs International</h1>
+        </div>
+        <script src="script/script.js"></script>
+
+        <div class="container">
+
+
+
+
+
+    <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Candidate</a></li>
+        <li><a href="#">Employees</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Login</a></li>
+        
+    </ul>
+
+<body>
+
+    <div class="slideshow-container">
+
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="Images/A1.jpeg" style="width:100%">
+          <div class="text">Caption Text</div>
+        </div>
+      
+        <!-- <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="Images/A2.jpg" style="width:100%">
+          <div class="text">Caption Two</div>
+        </div> -->
+      
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="Images/A3.jpg" style="width:100%">
+          <div class="text">Caption Three</div>
+        </div>
+
+        <!-- <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="Images/A4.jpg" style="width:100%">
+          <div class="text">Caption Three</div>
+        </div>
+       -->
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="Images/A5.jpg" style="width:100%">
+          <div class="text">Caption Three</div>
+        </div>
+      
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="Images/A6.jpg" style="width:100%">
+          <div class="text">Caption Three</div>
+        </div>
+<!--       
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="Images/A7.jpg" style="width:100%">
+          <div class="text">Caption Three</div>
+        </div>
+       -->
+        <!-- <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="Images/A8.jpg" style="width:100%">
+          <div class="text">Caption Three</div>
+        </div> -->
+      
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="Images/A9.jpg" style="width:100%">
+          <div class="text">Caption Three</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="Images/A10.jpg" style="width:100%">
+          <div class="text">Caption Three</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="Images/A11.jpg" style="width:100%">
+          <div class="text">Caption Three</div>
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br>
+      
+      <!-- The dots/circles -->
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+
+    <script>
+      let slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex-1].style.display = "block";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+            }
+    </script>
+    <!-- <div class="split container-outer"> -->
+
+        <!-- This is first part | Account information -->
+    
+        <div class="container2">
+
+            <div class="profile">
+
+                <div class="profile-info">
+                    <h2>Welcome To Express Jobs</h2>
+                    
+                    <img src="Images/User logo.jpg" alt="User Profile Picture" width="100" height="100">
+                  
+                    <!-- Consider using a list (e.g., <ul> and <li>) for navigation options -->
+                        <div class="btn1">
+                    <ul>
+                        <li><button>Edit Profile Photo</button></li>
+                      <li><button>Edit Profile</button></li>
+                      
+                      
+                    </ul>
+                </div>
+                    
+                  
+                    <p><u>Bio</u></p>
+                    <p>I'm Jane Hong, and I recently graduated with an advanced diploma from Smith secondary school. I'm seeking an internship where I can apply my skills in content creation and increase my experience in digital marketing.</p>
+                  
+                    <p><u>Skills</u></p>
+                    <p>Computer skills involve the ability to learn and operate various technology. Hardware skills allow you to physically operate a computer, and this can be as simple as knowing how to switch devices on and off. Software skills help you to efficiently use computer programs and applications.</p>
+                  
+                    <button>Submit</button>
+                    <button>Log Out</button>
+                  </div>
+            </div>
+
+            <div class="account">
+
+                <div class="account-information">
+                    <h2><u>Account Information</u></h2>
+                    <label for="fname"><b>First Name:</b></label>
+                    <input type="text" value="<?php echo  $f_name; ?>">
+
+                    <label for="fname"><b>Last Name:</b></label>
+                    <input type="text" value="<?php echo  $l_name; ?>">
+
+                    <label for="fname"><b>Phone No:</b></label>
+                    <input type="text" value="<?php echo  $phone_no; ?>">
+
+                    <label for="fname"><b>Email:</b></label>
+                    <input type="text" value="<?php echo  $email; ?>">
+
+
+            
+                    <!-- <input type="text"><br><br> -->
+                </div>
+
+                <div class="password">
+                    <h2>Change Password</h2>
+                    <form id="change-password-form" action="change_password.php" method="POST">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" name="current-password" required>
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" name="new-password" required>
+                        <label for="confirm-password">Confirm New Password</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                        <input type="submit" value="Change Password">
+                    </form>
+                </div>
+            
+                <!-- <div class="forget-password">
+                            <h2>Forget Password</h2>
+                            <button id="send-otp">Send OTP to Mobile</button>
+                            <button id="send-otp-email">Send OTP to Email</button>
+                            <form action="reset_password.php" method="POST">
+                                <label for="otp">OTP</label>
+                                <input type="number" name="otp" required>
+                                <button type="submit">Submit</button>
+                                <label for="new-password">New Password</label>
+                                <input type="password" name="new-password" required>
+                                <label for="confirm-password">Confirm New Password</label>
+                                <input type="password" name="confirm-password" required>
+                                <button type="submit">Reset Password</button>
+                            </form>
+                </div> -->
+
+                <script>
+                    const form = document.getElementById("change-password-form");
+                    form.addEventListener("submit", (e) => {
+                        e.preventDefault();
+            
+                        const currentPassword = document.getElementById("current-password").value;
+                        const newPassword = document.getElementById("new-password").value;
+                        const confirmPassword = document.getElementById("confirm-password").value;
+            
+                        if (newPassword !== confirmPassword) {
+                            alert("New password and confirm password do not match.");
+                        } else {
+                            // Send the form data to change_password.php for server-side processing.
+                            form.submit();
+                        }
+                    });
+                </script>
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="small-rectangle"></div>
+
+
+
+<!-- Footer -->
+
+    </body>
+
+    <hr>
+    <footer class="footer">
+    <div class="footer-rectangle">
+    <!-- Content for the first rectangle -->
+    <h3><u>Express jobs</u></h3>
+    
+    <p><a href="about-us.html">About Us</a></p>
+    <p><a href="mission.html">Mission</a></p>
+    <p><a href="vision.html">Vision</a></p>
+    
+    </div>
+
+    <div class="footer-rectangle">
+    <!-- Content for the second rectangle -->
+    <h3><u>Services</u></h3>
+    <ul>
+    <li><p>Posting jobs</p></li>
+    <li><p>Finding jobs</p></li>
+    </ul>
+    </div>
+
+    <div class="footer-rectangle">
+    <!-- Content for the third rectangle -->
+    <h3><u>Contact us</u></h3>
+    <ul>
+    <li><p>+94770639410</p></li>
+    <li><p>+94770639510</p></li>
+    
+    <a href="#"><li>expressjobsonline@gmail.com</li></a></p>
+    </ul>
+    </div>
+    
+    
+    
+    </footer>
+
+    </body>
+    </html>
