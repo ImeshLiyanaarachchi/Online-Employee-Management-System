@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Payment Gateway Page</title>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<script src="js\paySript.js"></script>
+    </head>
+	<body background="image/pg.jpg">
+	
+	
+	   
+	
+		<div class="header1">
+		
+		<img src="logo.jpg" class="logo">
+		<h1>Express Jobs International</h1>
+		
+		</div>
+		<ul class="menu">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="News.html">Candidates</a></li>
+			<li><a href="Employee.html">Employees</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">About us</a></li>
+			<li><a href="#">Contact us</a></li>
+			<li><a href="#">Login</a></li>
+			
+		</ul>
+		<style>
+		
+		/*------------------------------Feedback form -------------------------------*/
+		input[type=text], select 
+		{
+		  width: 100%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  box-sizing: border-box;
+		}
+
+		input[type=tel], select 
+		{
+		  width: 100%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  box-sizing: border-box;
+		}
+
+		option, select 
+		{
+		  width: 100%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  box-sizing: border-box;
+		}
+		
+		
+		input[type=submit] 
+		{
+		  width: 50%;
+		  background-color: #FFA500;
+		  color: maroon;
+		  padding: 14px 20px;
+		  margin: 8px 0;
+		  border: none;
+		  border-radius: 4px;
+		  cursor: pointer;
+		}
+
+		input[type=submit]:hover 
+		{
+		  background-color: #FFA500;
+		}
+
+		.Billing_Address
+		{
+	
+		  padding: 20px;
+		  position:relative;
+		}
+		.Payment_Method 
+		{
+	
+		  padding: 20px;
+		  position:relative;
+		}
+
+		h1
+		{
+            color: maroon;
+			text-align:center;
+		}
+		
+		h2
+		{
+			text-align:left;
+		}
+		hr
+		{
+		border: 3px solid maroon;
+		border-radius: 5px;
+	    }
+	</style>
+	</head>
+	
+	
+
+		<fieldset>
+			
+			<legend align="left" style= "font-family:arial; font-size:200%; color:#FFA500">
+			Billing Address</legend>
+
+
+	<div class="Billing_Address">
+	<title>Billing Address</title>
+
+  			<table>
+  				<form>
+  				<tr>
+  					<td><label for="fname">Name</label></td>
+  					<td><input type="text" id="lname" name="lastname" placeholder="Your name here"></td>
+  					
+  				</tr>
+  				<tr>
+  					<td><label for="fname">City/Town</label></td>
+  					<td><input type="text" id="lname" name="lastname" placeholder="Your city here"></td>
+					
+  				</tr>
+				<tr>
+  					<td><label for="country">Province</label></td>
+					<td><select id="country" name="Province">
+					<option value="usa">Western</option>
+      				<option value="australia">Central</option>
+      				<option value="canada">Northern</option>
+					<option value="usa">North Central</option>
+      				<option value="australia">North Western</option>
+      				<option value="canada">Eastern</option>
+					<option value="usa">Sabaragamuwa</option>
+      				<option value="australia">Uva</option>
+      				<option value="canada">Southern</option>
+    				</select></td>
+  				</tr>
+  				<tr>
+  					<td><label for="lname">Postal Code</label></td>
+  		
+  					<td><input type="text" name="Postal Code" autocomplete="on" placeholder="Enter your postal code here"><br><br></td>
+
+  					
+  				</tr>
+  				<tr>
+  					<td><label for="country">Contact Number</label></td>
+  					<td><input type="tel" placeholder="Enter your contact number"><br><br></td>
+  					
+  				</tr>
+				<tr>
+  					<td><label for="lname">Email</label></td>
+  		
+  					<td><input type="text" name="Postal Code" autocomplete="on" placeholder="Enter your email here"><br><br></td>
+					</table>
+					</form>
+					
+					
+					<form action="other_page.php" method="post">
+					
+		
+	</div>
+	</fieldset>
+	
+	
+	
+		<fieldset>
+			
+			<legend align="left" style= "font-family:arial; font-size:200%; color:#FFA500">
+			Payment Method</legend>
+	<div class="Payment_Method">
+	<title> Payment Method </title>
+	<img src="payments.png" class="payments">
+	<table>
+  				<form>
+				<tr>
+  					<td><input type="radio" name="visa" value="visa"> visa</td> 
+					<td><input type="radio" name="mastercard" value="mastercard" > mastercard </td></tr>
+					<tr><td><input type="radio" name="paypal" value="paypal"> paypal </td>
+					<td><input type="radio" name="american express" value="american express" checked> american express </td></td> 
+					
+					
+			        <tr>
+					<td><label for="fname">Name on card</label></td>
+  					<td><input type="text" id="cname" name="card name" placeholder="Your card name here"></td> 
+					</tr>
+					
+					<tr>
+					<td><label for="fname">Card Number</label></td>
+  					<td><input type="text" id="cnumber" name="card Number" placeholder="Your card Number here"></td>
+					</tr>
+					
+					<tr>
+					<td>Expires</td>
+  					<td><select id = "Month" name = "MM">
+					<option value = "0"> MM </option>
+				    <option value = "1"> January </option>
+					<option value = "2"> February </option>
+					<option value = "3"> March </option>
+					<option value = "4"> April </option>
+					<option value = "5"> May </option>
+					<option value = "6"> June </option>
+					<option value = "7"> July</option>
+					<option value = "8"> August </option>
+					<option value = "9"> September </option>
+					<option value = "10"> October </option>
+					<option value = "11"> November </option>
+					<option value = "12"> December </option> 
+					</select></td>
+				
+
+  					<td><select id = "Year" name = "YY">
+					
+					<option value = "2020"> 2027 </option>
+					<option value = "2019"> 2026 </option>
+					<option value = "2018"> 2025 </option>
+					<option value = "2017"> 2024 </option>
+					<option value = "2016"> 2023 </option>
+					</select></td>
+					</tr> 
+					
+					<tr>
+					<td><label for="scode">Security code</label></td>
+  					<td><input type="text" id="scode" name="security code" placeholder="Your security Code here"></td>
+					</tr> 
+					
+					
+					
+				</tr>
+				</form>
+				</table>
+				</div>
+				</fieldset>
+				
+			
+		<center>
+		  		<tr>
+  				<td></td>
+  				<td><input type="submit" value="Submit" maxlength="10px"></td></tr>
+		
+        <center>
+		
+		<hr>
+		<footer class="footer">
+		<div class="footer-rectangle">
+        <!-- Content for the first rectangle -->
+        <h3><u>Express jobs</u></h3>
+		
+        <p><a href="about-us.html">About Us</a></p>
+        <p><a href="mission.html">Mission</a></p>
+        <p><a href="vision.html">Vision</a></p>
+		</div>
+    
+		<div class="footer-rectangle">
+        <!-- Content for the second rectangle -->
+        <h3><u>Services</u></h3>
+		<ul>
+        <li><p>Posting jobs</p></li>
+		<li><p>Finding jobs</p></li>
+		</ul>
+		</div>
+    
+		<div class="footer-rectangle">
+        <!-- Content for the third rectangle -->
+        <h3><u>Contact us</u></h3>
+		<ul>
+        <li><p>+94770639410</p></li>
+		<li><p>+94770639510</p></li>
+		
+		<a href="#"><li>expressjobsonline@gmail.com</li></a></p>
+		</ul>
+		</div>
+		
+		
+		
+		</footer>
+			
+	</body>
+</html>

@@ -1,0 +1,124 @@
+create table Job_seeker(
+	Job_seeker_id int not null auto_increment,
+	First_name varchar(20) not null,
+	Middle_name varchar(20),
+	Last_name varchar(20) not null,
+        DOB date not null,
+	gender boolean not null,
+	Email varchar(40) not null,
+	Phone_number char(15) not null,
+	cvID int,
+	User_id int not null,
+		CONSTRAINT id_pk PRIMARY KEY(Job_seeker_id)
+);
+
+create table Users(
+	User_id int not null auto_increment,
+	User_name varchar(30) not null,
+	Password varchar(15),
+	User_type_id int not null,
+		CONSTRAINT uid_pk PRIMARY KEY(User_id) 
+);
+
+create table User_type(
+	User_type_id int not null auto_increment, 
+	role varchar(30) not null,
+	
+		CONSTRAINT utid_pk PRIMARY KEY( User_type_id ) 
+);
+
+create table Permissions(
+	Permissions_id int not null auto_increment, 
+	Permissions_name varchar(30) not null,
+	web_page_URL varchar(30),
+	
+		CONSTRAINT pid_pk PRIMARY KEY( Permissions_id ) 
+);
+
+create table User_type_Permissions(
+	User_type_id int not null , 
+	Permissions_id int not null ,
+	Permission boolean not null,
+	
+		CONSTRAINT utpid_pk PRIMARY KEY( User_type_id ,Permissions_id) 
+);
+
+create table Client(
+	Client_id int not null auto_increment,
+	Client_name varchar(50) not null,
+	Client_type_id int not null,
+	Email varchar(40) null null,
+	Phone_number int not null,
+	Adress varchar(30)	,
+	Web_address varchar(30),
+	User_id int not null,
+	
+		CONSTRAINT cid_pk PRIMARY KEY(Client_id)
+);
+
+create table Client_type(
+	Client_type_id int not null auto_increment, 
+	Client_type varchar(30) not null,
+	
+		CONSTRAINT ctid_pk PRIMARY KEY( Client_type_id ) 
+);
+
+create table Job_Posts(
+	Job_id int not null auto_increment, 
+	Job_field_id int not null , 
+	job_title_id int not null ,
+	job_Title_description varchar(30) ,
+	Date_posted datetime,
+	Closing_date datetime, 
+	Client_id int not null,
+	Jop_file_url varchar(15),
+	status boolean not null;
+		CONSTRAINT jpid_pk PRIMARY KEY( Job_id ) 
+);
+
+create table Job_fields(
+	Job_field_id int not null auto_increment, 
+	Field varchar(30) not null,
+	
+		CONSTRAINT jfid_pk PRIMARY KEY( Job_field_id ) 
+);
+
+create table Job_Titles(
+	Job_title_id int not null auto_increment, 
+	Job_Title varchar(30) not null,
+	
+		CONSTRAINT jt_pk PRIMARY KEY( Job_title_id ) 
+);
+
+create table Application(
+	Application_id int not null , 
+	job_seeker_id int not null , 
+	job_id int not null , 
+
+	
+		CONSTRAINT app_pk PRIMARY KEY( Application_id ) 
+);
+
+create table Payment(
+	invoice_id  int not null auto_increment, 
+	Job_ID int not null ,
+	Date datetime not null,
+	Time datetime not null,
+	Job_posting_charge int not null, 
+	Tax_Amount int not null,
+	Total_Bill  int not  null,
+	Payment_Status boolean not null,
+	
+		CONSTRAINT pid_pk PRIMARY KEY(invoice_id)
+);
+insert into Job_seeker( First_name , Middle_name , Last_name , Email , Phone_number , DOB , User_id  ) 
+			values("Nishini","Himasha","Silva","nishinihimasha@gmail.com",0712505366,"2002-07-20:12.30",01);
+
+insert into Job_seeker( First_name , Middle_name , Last_name , Email , Phone_number , DOB , User_id  ) 
+			values("Nishadhi","Madhushika","Silva","nishadhi@gmail.com",0712505368,"1998-01-01:12.30",02);
+
+Update Job_seeker set Email="nishadhimsilva@gmail.com" where Job_seeker_id=2;
+
+Delete from Job_seeker where Job_seeker_id=1;
+
+truncate job_seeker;

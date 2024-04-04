@@ -1,0 +1,282 @@
+CREATE DATABASE Express_Jobs;
+/*System Table*/
+CREATE TABLE System (
+ System_ID INT NOT NULL PRIMARY KEY,
+ System_Name VARCHAR(55) NOT NULL,
+ Support_Contacts VARCHAR(15) NOT NULL,
+ Security_measure VARCHAR(75) NOT NULL,
+ 
+);
+/* Recruitment_System_Manager Table*/
+CREATE TABLE Recruitment_System_Manager (
+ Employee_ID INT NOT NULL,
+ Name VARCHAR(35) NOT NULL,
+ Recruitment_Quota INT NOT NULL,
+ Recruitment_process VARCHAR(50) NOT NULL,
+ User_support VARCHAR(60) NOT NULL,
+ 
+ CONSTRAINT Recruitment_System_Manager_PK PRIMARY KEY(Employee_ID),
+ CONSTRAINT Recruitment_System_Manager_FK FOREIGN KEY (System_ID) System (System_ID)
+);
+/* Recruitment_System_Manager_Contact Table*/
+CREATE TABLE Recruitment_System_Manager_Contact (
+ Employee_ID INT NOT NULL,
+ Contact_Number VARCHAR(10) NOT NULL,
+CONSTRAINT Recruitment_System_Manager_Contact_FK FOREIGN KEY (Employee_ID) REFERENCES
+Recruitment_System_Manager (Employee_ID),
+CONSTRAINT Recruitment_System_Manager_Contact_FK_CHECK CHECK (Contact_Number BETWEEN
+0000000000 AND 999999999)
+);
+/* Recruitment_System_Manager_Email Table*/
+CREATE TABLE Recruitment_System_Manager_Email (
+ Employee_ID INT NOT NULL,
+ Email VARCHAR(40) NOT NULL,
+CONSTRAINT Recruitment_System_Manager_Email_FK FOREIGN KEY (Employee_ID) REFERENCES
+Recruitment_System_Manager (Employee_ID),
+CONSTRAINT Recruitment_System_Manager_Email_FK_CHECK CHECK (Email LIKE '%_@_%._%')
+);
+/*Recruitment_Letter Table*/
+CREATE TABLE Recruitment_Letter (
+ Letter_No INT NOT NULL PRIMARY KEY,
+ Job_ID INT NOT NULL,
+ Company_Name VARCHAR(34) NOT NULL,
+ Candidate_Name VARCHAR(50) NOT NULL,
+ FOREIGN KEY (Employee_ID) REFERENCES Recruitment_System_Manager (Employee_ID)
+);
+/*Interview_Document Table*/
+CREATE TABLE Interview_Document (
+ Interview_ID INT NOT NULL PRIMARY KEY,
+ Interview_Type VARCHAR(35) NOT NULL,
+ Job_ID INT NOT NULL,
+ Interview_Venue VARCHAR(75) NOT NULL,
+ Interview_Date DATE NOT NULL,
+ Interview_Time TIME NOT NULL,
+ FOREIGN KEY (Employee_ID) REFERENCES Recruitment_System_Manager (Employee_ID)
+);
+ 
+/*Job_post Table*/
+CREATE TABLE Job_post (
+ Job_ID INT NOT NULL PRIMARY KEY,
+ Job_title VARCHAR(50) NOT NULL,
+ FOREIGN KEY (Employee_ID) REFERENCES Recruitment_System_Manager (Employee_ID)
+);
+/*Client_Company Table*/
+CREATE TABLE Client_Company(
+Company_ID VARCHAR(5) not null,
+C_User_Name VARCHAR(30) not null,
+C_Profile_Information VARCHAR(100) not null,
+C_Address VARCHAR(50) not null,
+C_Password VARCHAR (8) not null,
+CONSTRAINT Client_Company_PK PRIMARY KEY (Company_ID)
+);
+/*Client_Company_Interview_Document Table*/
+CREATE TABLE Client_Company_Interview_Document (
+ Company_ID VARCHAR(5) not null,
+ Interview_ID VARCHAR(5) not null,
+CONSTRAINT Client_Company_Interview_Document_PK PRIMARY KEY (Company_ID,
+Interview_ID),
+ CONSTRAINT Client_Company_Interview_Document_FK1 FOREIGN KEY (Company_ID) REFERENCES
+Client_Company (Company_ID),
+ CONSTRAINT Client_Company_Interview_Document_FK2 FOREIGN KEY (Interview_ID) REFERENCES
+Interview_Document (Interview_ID)
+);
+/*Company_Email Table*/
+CREATE TABLE Company_Email (
+ Company_ID VARCHAR(5) not null,
+ Email VARCHAR(40) CHECK (Email LIKE '%_@_%._%') not null,
+CONSTRAINT Company_Email_PK PRIMARY KEY (Company_ID, Email),
+CONSTRAINT Company_Email_FK FOREIGN KEY (Company_ID) REFERENCES Client_Company
+(Company_ID)
+);
+/*Company_Phone_Number Table*/
+CREATE TABLE Company_Phone_Number (
+ Company_ID VARCHAR(5) not null,
+ Phone_Number INT ,
+ CONSTRAINT Company_Phone_Number_PK PRIMARY KEY (Company_ID,Phone_Number),
+ CONSTRAINT Company_Phone_Number_FK FOREIGN KEY (Company_ID) REFERENCES Client_Company
+(Company_ID)
+);
+/*Job_Application Table*/
+CREATE TABLE Job_Application(
+Application_ID VARCHAR(5) not null,
+Company_ID VARCHAR (5) not null,
+Candidate_ID VARCHAR(5) not null,
+Job_ID VARCHAR(5) not null,
+CONSTRAINT Job_Application_PK PRIMARY KEY (Application_ID),
+CONSTRAINT Job_Application_FK FOREIGN KEY (Company_ID) REFERENCES Client_Company
+(Company_ID)
+);
+/*Job_Post Table*/
+CREATE TABLE Job_Post(
+Job_ID VARCHAR(5) not null,
+Company_ID VARCHAR(5) not null,
+Job_Title VARCHAR(30) not null,
+Job_Description VARCHAR(500) not null,
+Date_Posted DATE,
+CONSTRAINT Job_Post_PK PRIMARY KEY (Job_ID),
+CONSTRAINT Job_Post_FK FOREIGN KEY (Company_ID) REFERENCES Client_Company
+(Company_ID)
+);
+/*System Admin Table*/
+CREATE TABLE System_Admin
+(
+ Admin_ID varchar (15) not null,
+ Name varchar (40) not null,
+ System_ID varchar(15) not null,
+ DOB date not null,
+ CONSTRAINT System_Admin_PK PRIMARY KEY(Admin_ID)
+);
+/*System Admin Telephone Number Table*/
+CREATE TABLE System_Admin_Telno
+(
+ Admin_ID varchar (15) not null,
+ Telno decimal (10,0) not null,
+ CONSTRAINT System_Admin_Telno_PK PRIMARY KEY(Admin_ID),
+ CONSTRAINT System_Admin_Telno_FK FOREIGN KEY(Admin_ID)
+ REFERENCES System_Admin(Admin_ID)
+);
+/*System Admin Email Table*/
+CREATE TABLE System_Admin_Email
+(
+ Admin_ID varchar (15) not null,
+ Email varchar (35) CHECK (Email LIKE '%_@_%._%') not null,
+ CONSTRAINT System_Admin_Email_PK PRIMARY KEY(Admin_ID),
+ CONSTRAINT System_Admin_Email_FK FOREIGN KEY(Admin_ID)
+ REFERENCES System_Admin(Admin_ID)
+);
+/*System Admin Table*/
+CREATE TABLE User_Account
+(
+ user_ID varchar (15) not null,
+ Account_No varchar (30) not null,
+ Account_Name varchar (40) not null,
+ Admin_ID varchar (15) not null,
+ Account_Type varchar (20) not null,
+ CONSTRAINT User_Account_PK PRIMARY KEY(user_ID),
+ CONSTRAINT User_Account_FK FOREIGN KEY(Admin_ID)
+ REFERENCES System_Admin(Admin_ID)
+);
+/*Employee Table*/
+CREATE TABLE Employee
+(
+ Emp_ID varchar (15) not null,
+ E_Name varchar (40) not null,
+ Admin_ID varchar (15) not null,
+ Address varchar (20) not null,
+ Job_Title varchar (20) not null,
+ CONSTRAINT Employee_PK PRIMARY KEY(Emp_ID),
+ CONSTRAINT Employee_FK FOREIGN KEY(Admin_ID)
+ REFERENCES System_Admin(Admin_ID)
+);
+/ /*Employee_Telno Table*/
+CREATE TABLE Employee_Telno
+(
+ Emp_ID varchar (15) not null,
+ Telno decimal (10,0) not null,
+ CONSTRAINT Employee_Telno_PK PRIMARY KEY(Emp_ID),
+ CONSTRAINT System_Admin_Telno_FK FOREIGN KEY(Emp_ID)
+ REFERENCES Employee(Emp_ID)
+);
+/*Employee_Email Table*/
+CREATE TABLE Employee_Email
+(
+Emp_ID varchar (15) not null,
+ Email varchar (35) CHECK (Email LIKE '%_@_%._%') not null,
+ CONSTRAINT Employee_Email_PK PRIMARY KEY(Emp_ID),
+ CONSTRAINT Employee_Email_FK FOREIGN KEY(Emp_ID)
+ REFERENCES Employee(Emp_ID)
+);
+/*Job_Seeker Table*/
+CREATE TABLE Job_Seeker(
+Candidate_ID INT PRIMARY KEY, NOT NULL
+First_Name VARCHAR(35), NOT NULL
+Middle_Name VARCHAR(35), NOT NULL
+Last_Name VARCHAR(35), NOT NULL
+Age INT, NOT NULL
+Interview_ID INT, NOT NULL
+CONSTRAINT Job_Seeker_PK PRIMARY KEY(Candidate_ID),
+);
+/*Job_Seeker_Contact_Details Table*/
+CREATE TABLE Job_Seeker_Contact_Details(
+Candidate_ID INT, NOT NULL
+Contact_Number VARCHAR(10), NOT NULL
+CONSTRAINT Job_Seeker_Contact_Details_PK PRIMARY KEY(Candidate_ID,Contact_Number),
+CONSTRAINT Job_Seeker_Contact_Details_FK FOREIGN KEY(Candidate_ID) REFERENCES 
+Job_Seeker(Candidate_ID)
+);
+/*Job_Seeker_Work_Experience_Details Table*/
+CREATE TABLE Job_Seeker_Work_Experience_Details(
+Candidate_ID INT, NOT NULL
+Work_Experience VARCHAR (100), NOT NULL
+CONSTRAINT Job_Seeker_Work_Experience_Details_PK PRIMARY
+KEY(Candidate_ID,Work_Experience),
+CONSTRAINT Job_Seeker_Work_Experience_Details_FK FOREIGN KEY(Candidate_ID) REFERENCES 
+Job_Seeker(Candidate_ID)
+);
+/*Apply Table*/
+CREATE TABLE Apply(
+Candidate_ID INT, NOT NULL
+Job_ID INT, NOT NULL
+CONSTRAINT Apply_PK PRIMARY KEY(Candidate_ID,Job_ID)
+CONSTRAINT Apply_FK FOREIGN KEY(Job_ID) REFERENCES Job_Vacancy(Job_ID)
+);
+/*Job_Vacancy Table*/
+CREATE TABLE Job_Vacancy(
+Job_ID INT, NOT NULL
+Job_Title VARCHAR(20), NOT NULL
+Company_Name VARCHAR(35), NOT NULL
+CONSTRAINT Job_Vacancy_PK PRIMARY KEY(Job_ID),
+);
+/*Job_Vacancy_Qulification_Details Table*/
+CREATE TABLE Job_Vacancy_Qulification_Details(
+Job_ID INT, NOT NULL
+Qulifications VARCHAR(100), NOT NULL
+CONSTRAINT Job_Vacancy_Qulification_Details_PK PRIMARY KEY(Job_ID,Qulifications),
+);
+/*Payment table*/
+create table Payment(
+invoice_id char(6) not null ,
+Job_ID char(6) not null ,
+Payer int not null,
+Amount int,
+Date datetime not null,
+Time datetime not null,
+Tax_ID int not null,
+User_ID int not null,
+CONSTRAINT id_PK PRIMARY KEY(invoice_id,job_ID)
+ 
+);
+/*Account_manager table*/
+create table Account_manager(
+User_ID int not null,
+Name char(20) not null ,
+CONSTRAINT uid_PK PRIMARY KEY(User_ID )
+ 
+);
+User_ID int not null,
+Email char(30) not null ,
+CONSTRAINT ueid_PK PRIMARY KEY(User_ID,Email )
+);
+/* Account_manager_Contact_Number table*/
+create table Account_manager_Contact_Number(
+User_ID int not null,
+Contact_Number char(13) not null ,
+CONSTRAINT ucid_PK PRIMARY KEY(User_ID,Contact_Number )
+);
+/* Tax table*/
+create table Tax(
+Tax_ID int not null,
+Tax_name char(10) not null ,
+Tax_amount int,
+Tax_year int,
+CONSTRAINT tiid_PK PRIMARY KEY( Tax_ID , Tax_name )
+);
+/* Financial_report table*/
+create table Financial_report(
+Report_ID int not null,
+Date date,
+Report_name char(20) not null ,
+Income int,
+Expenses int,
+CONSTRAINT frid_PK PRIMARY KEY( report_id, Date,Report_name ,Income , Expenses )
+);

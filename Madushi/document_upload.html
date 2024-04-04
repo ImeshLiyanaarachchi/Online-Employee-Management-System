@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Document Upload</title>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<script src="js\myScript.js"></script>
+		<?php
+          echo "about";
+        ?>
+    </head>
+	
+	
+	<body>
+	<body background="image/do.jpg">
+	
+		
+		
+		<div class="header1">
+		
+		<img src="logo.jpg" class="logo">
+		<h1>Express Jobs International</h1>
+		
+		</div>
+		<ul class="menu">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="News.html">Candidates</a></li>
+			<li><a href="Employee.html">Employees</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">About us</a></li>
+			<li><a href="#">Contact us</a></li>
+			<li><a href="#">Login</a></li>
+			
+		</ul>
+		<style>
+		
+		/*------------------------------Feedback form -------------------------------*/
+		input[type=text], select 
+		{
+		  width: 50%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  box-sizing: border-box;
+		}
+		input[type=tel], select 
+		{
+		  width: 100%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  box-sizing: border-box;
+		}
+		option, select 
+		{
+		  width: 50%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  box-sizing: border-box;
+		}
+
+		input[type=submit]
+		{
+		  width: 20%;
+		  background-color: #FFA500;
+		  color: maroon;
+		  padding: 14px 20px;
+		  margin: 8px 0;
+		  border: none;
+		  border-radius: 4px;
+		  cursor: pointer;
+		}
+		
+		input[type=submit]:hover 
+		{
+		  background-color: #FFA500;
+		}
+		
+		h1
+		{
+		    color: maroon;
+			text-align:center;
+		}
+		
+		h2
+		{
+			text-align:left;
+		}
+		
+		
+		hr
+		{
+		border: 3px solid maroon;
+		border-radius: 5px;
+	    }
+	</style>
+	</head>
+	
+	<form action="other_page.php" method="post">
+	</form>
+	
+	
+			
+			<legend align="left" style= "font-family:arial; font-size:200%; color:#FFA500">
+			<u> Document Upload </u> </legend>
+			
+	<table>
+  				<form>
+  				
+				
+				<tr>
+  					<td><label for="Job">Job Category</label></td>
+					<td><select id="Job" name="Job Category">
+					<option value="select">select</option>
+					<option value="select"></option>
+      				
+    				</select></td>
+  				</tr>
+				
+				<tr>
+  					<td><label for="cname">Company Name</label></td>
+  					<td><input type="text" id="cname" name="Cname" ></td>
+  					
+  				</tr>
+				
+				<tr>
+  					<td><label for="jposition">Job Position</label></td>
+  					<td><input type="text" id="jposition" name="jposition" ></td>
+  					
+  				</tr>
+				
+				<tr>
+  					<td><label for="cnumber">Contact Number</label></td>
+  					<td><input type="text" id="cnumber" name="cnumber" ></td>
+  					
+  				</tr>
+				<br><br>
+				
+	
+	            </form>
+	</table>
+	<br><br>
+	
+	<center>
+
+	           <input class="up" type="file" id="upEx" name="upEx" accept="application/pdf" /> <br><br>
+	           <input type="submit" name="arun2" id="arun2" value="Submit" accept="application/pdf" />
+			    
+			   
+	           
+	</center>
+	<br><br>
+    
+	<center>
+			   <form id ="updateDocumentForm">
+			   <input type ="text" id ="author" placeholder ="Author">
+			   <input type ="date" id ="creationDate">
+			   
+			   <br><br>
+			   
+			   <!--other fields for document-specific details-->
+			   
+			   <button onclick ="updateDocumentInfo()">Update Document</button>
+			   <br><br>
+			   
+			   
+			   <button onclick = "deleteDocument()"> Delete Document </button>
+			   
+			   <br><br>
+			   
+			   </form>
+	<center>
+			   
+			 
+			   
+			   
+	<hr>
+		<footer class="footer">
+		<div class="footer-rectangle">
+        <!-- Content for the first rectangle -->
+        <h3><u>Express jobs</u></h3>
+		
+        <p><a href="about-us.html">About Us</a></p>
+        <p><a href="mission.html">Mission</a></p>
+        <p><a href="vision.html">Vision</a></p>
+		</div>
+    
+		<div class="footer-rectangle">
+        <!-- Content for the second rectangle -->
+        <h3><u>Services</u></h3>
+		<ul>
+        <li><p>Posting jobs</p></li>
+		<li><p>Finding jobs</p></li>
+		</ul>
+		</div>
+    
+		<div class="footer-rectangle">
+        <!-- Content for the third rectangle -->
+        <h3><u>Contact us</u></h3>
+		<ul>
+        <li><p>+94770639410</p></li>
+		<li><p>+94770639510</p></li>
+		
+		<a href="#"><li>expressjobsonline@gmail.com</li></a></p>
+		</ul>
+		</div>
+		
+		
+		
+		</footer>
+			
+	</body>
+</html>

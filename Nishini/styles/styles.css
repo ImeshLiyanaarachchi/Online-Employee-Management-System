@@ -1,0 +1,178 @@
+body {
+	background-image:url("../images/bg.jpg");
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Minimum height of the viewport */
+}
+body{
+	min-height:100vh;
+	
+}
+.navbar ul li:hover a {
+    color: #009688; /* Change the text color on hover */
+}
+
+.navbar ul li:hover::after {
+    width: 100%;
+    background: #009688; /* Change the background color on hover */
+}
+
+.navbtn{
+	background-color:;
+	color:white;
+	
+}
+.navbtn:hover{
+	background-color:;
+	color:yellow;
+	
+}
+
+.logo{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.header1{
+	width:100%;
+	height:20%;
+}
+.header1 h1 {
+    font-size: 20px; /* Adjust the font size to your preference */
+    text-align: center;
+}
+	
+	
+
+h3{
+	font-family:Garamond;
+}
+
+hr#test{
+	border: 2px solid blue;
+}
+ul.menu{
+  list-style-type: none;
+  margin:;
+  padding:;
+  overflow: hidden;
+  background-color: #333;
+  
+}
+
+li a{
+  float: left;
+  border-right: 1px solid #333;
+  display: block;
+  padding: 15px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.employee {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 300px; /* Increase the height as needed */
+    background: #414445;
+    justify-content: center; /* Center content horizontally */
+    align-content: flex-start;
+	font-size:10px;
+	color:white;
+}
+
+.employee1 {
+    width: 20%;
+    height: 93%; /* Adjust the height of inner divs to fit within the .employee div */
+    background: #58627d;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px; /* Adjust the margin between rows as needed */
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+	font-family:Sans-Serif;
+}
+.employee1 img{
+	max-width: 70%; 
+    max-height: 93%;
+	
+}
+
+
+.footer {
+	background-color: #24262b;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+	position:sticky;
+	top:100%;
+}
+
+.frame {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-style: double;
+  border-color:black;
+  border-width: 4px;
+  padding: 10px;
+}
+
+.button1{
+  background-color: #4683B0; 
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+	
+form{
+	width:500px;
+	margin:auto;
+	padding:20px;
+	background:#4682b4;
+	font-size:14px;
+	font-family:verdana;
+	Color:White;
+	
+}	
+.search_form{
+	width:100%;
+	margin:auto;
+	padding:20px;
+	background:#4682b4;
+	font-size:14px;
+	font-family:verdana;
+	Color:White;
+	
+}	
+
+.footer-rectangle {
+    width: 30%; /* Adjust the width to your preference */
+    background-color: ##24262b; /* Background color for rectangles */
+    margin: 10px; /* Adjust margin as needed to create spacing between rectangles */
+    display: inline-block; /* Make rectangles appear in a row */
+    text-align: left; /* Adjust text alignment as needed */
+    border-radius: 5px; /* Add rounded corners if desired */
+    vertical-align: top; /* Add this to align the rectangles to the top */
+}
+
+.footer-rectangle h3 {
+    font-size: 18px; /* Adjust the font size for headings */
+    margin: 10px 0; /* Add spacing around the heading */
+}
+
+.footer-rectangle p {
+    font-size: 14px; /* Adjust the font size for content */
+    margin: 10px 0; /* Add spacing around the content */
+}

@@ -1,0 +1,23 @@
+create table Payment(
+	invoice_id  char(6)not null ,
+	Job_ID char(6)not null ,
+	Date datetime not null,
+	Time datetime not null,
+	Job_posting_charge int not null, 
+	Tax_Amount int not null,
+	Total_Bill  int not  null,
+	Payment_Status boolean not null,
+	
+		CONSTRAINT id_pk PRIMARY KEY(invoice_id)
+);
+
+
+
+insert into Payment values('I00001','J00001',curdate(),now(),2500,375,2875,1);
+insert into Payment values('I00002','J00002',curdate(),now(),2500,375,2875,1);
+insert into Payment values('I00003','J00003',curdate(),now(),2500,375,2875,1);
+insert into Payment values('I00004','J00004',curdate(),now(),2500,375,2875,1);
+insert into Payment values('I00005','J00005',curdate(),now(),2500,375,2875,1);
+
+
+ 
